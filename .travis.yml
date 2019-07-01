@@ -1,0 +1,14 @@
+language: scala
+
+scala:
+  - 2.11.8
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_75a1a8998cfd_key -iv $encrypted_75a1a8998cfd_iv -in secrets.tar.enc -out secrets.tar -d
+
+script:
+  - sbt compile
+
+after_success:
+  - cat password.txt
+  - cat gpg.txt
