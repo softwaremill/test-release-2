@@ -1,6 +1,6 @@
+import com.softwaremill.Publish.Release._
 import sbtrelease.ReleasePlugin.autoImport._
 import sbtrelease.ReleaseStateTransformations._
-import com.softwaremill.Publish.Release._
 
 //
 
@@ -9,9 +9,12 @@ val publishRelease = taskKey[Unit]("Publish the current release (basing on versi
 
 val isCommitRelease = settingKey[Boolean]("A hacky way to differentiate between commitRelease and publishRelease invocations.")
 
-credentials += Credentials("pgp.credentials")
+useGpg := false
+credentials += Credentials(baseDirectory.value / "pgp.credentials")
 
-
+pgpSecretRing := baseDirectory.value / "secring.asc"
+pgpPublicRing := baseDirectory.value / "pubring.asc"
+pgpPassphrase := Some("kasper").map(_.toArray)
 commands += Command.command("commitRelease") { state =>
   "set isCommitRelease := true" ::
     "release" ::

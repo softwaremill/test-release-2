@@ -1,12 +1,11 @@
 language: scala
-
 scala:
   - 2.11.8
-
 before_install:
   - openssl aes-256-cbc -K $encrypted_75a1a8998cfd_key -iv $encrypted_75a1a8998cfd_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
-
 script:
-  - sbt compile
-
+  - sbt publishLocalSigned
+env:
+  global:
+    secure: nWuwwSEf/HBwhSRMdUfmCrQ6KVENCTt6PnAeI0TcO3Zbut41DleQl+/tQLQFTe2sOjcuEvKf7DU/uNhARGYknT3q5Zbz7k7V0BLb+auxgkv9kGR4iKsifD5qelT90r1ySjmsFA3mF3pm8bo9MvUxBEEPIeUg0DUbhI/na5ZFSh9GI8ZVO1SVH/1KGeWXZXn0dz2DxQPnuMgvn7udCYdQzZzMsUlyIHV0cp6bTYTQgHfFQ/vYmzc7JXJ8YU+396DpZ6O70kXrrpFLpm0Rvb+2lSy/rOCskXh9V+0q3IHBMGan4+d/PFKb4E4bprSY1+EEDGogN1DYYMdKefJmIoqHyuelhe5OUQADzvfDUNHc28GfGCf4n8VkA2GVdUkWctZDZFSZTY1FZlEYgaHFtDgpYf/DVGaMFF3GxY/N2sM1gFK8tK4tjgvR3byzgbki2DrLDctf3A2vUkdyBI5E0IsGRVEfrXv2M+3hMAigZTqSTb8rw5zQzxi8MXmvi9zV/JaKF+IIuNj5L/0bbjOzS8tnGL0Dh2bK4BzN/aZhBCCh8l4dPhQ78jnkdd8tON/kz/zChTjXUpUTf9GSukw1JvPyiF1zEXS/GKiqwadU5KJdILMH+to0PWWcUA01QM99cxTapxwnTL/eDYwQuX9m1I/WVgnB1y4rzv6rmxtOP/h+ogI=
