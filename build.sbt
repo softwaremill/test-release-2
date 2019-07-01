@@ -10,8 +10,6 @@ val publishRelease = taskKey[Unit]("Publish the current release (basing on versi
 val isCommitRelease = settingKey[Boolean]("A hacky way to differentiate between commitRelease and publishRelease invocations.")
 
 useGpg := false
-credentials += Credentials(baseDirectory.value / "pgp.credentials")
-
 pgpSecretRing := baseDirectory.value / "secring.asc"
 pgpPublicRing := baseDirectory.value / "pubring.asc"
 pgpPassphrase := sys.env.get("PGP_PASSWORD").map(_.toArray)
