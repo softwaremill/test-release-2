@@ -14,7 +14,7 @@ credentials += Credentials(baseDirectory.value / "pgp.credentials")
 
 pgpSecretRing := baseDirectory.value / "secring.asc"
 pgpPublicRing := baseDirectory.value / "pubring.asc"
-pgpPassphrase := Some("kasper").map(_.toArray)
+pgpPassphrase := sys.env.get("PGP_PASSWORD").map(_.toArray)
 commands += Command.command("commitRelease") { state =>
   "set isCommitRelease := true" ::
     "release" ::
