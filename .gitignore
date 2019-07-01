@@ -12,3 +12,9 @@ project/boot/
 project/plugins/project/
 
 .idea*
+
+password.txt
+username.txt
+pubring.asc
+secring.asc
+secrets.tar
