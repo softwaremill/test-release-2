@@ -13,8 +13,7 @@ project/plugins/project/
 
 .idea*
 
-password.txt
-username.txt
+pgp.credentials
 pubring.asc
 secring.asc
 secrets.tar

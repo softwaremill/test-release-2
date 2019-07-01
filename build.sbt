@@ -9,6 +9,9 @@ val publishRelease = taskKey[Unit]("Publish the current release (basing on versi
 
 val isCommitRelease = settingKey[Boolean]("A hacky way to differentiate between commitRelease and publishRelease invocations.")
 
+credentials += Credentials("pgp.credentials")
+
+
 commands += Command.command("commitRelease") { state =>
   "set isCommitRelease := true" ::
     "release" ::
