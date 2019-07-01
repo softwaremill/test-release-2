@@ -56,7 +56,6 @@ lazy val rootProject = (project in file("."))
           releaseStepCommand("sonatypeReleaseAll"),
         )
       }
-      Release.steps(organization.value)
     }
   )
   .aggregate(core)
