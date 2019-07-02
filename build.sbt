@@ -1,4 +1,6 @@
-lazy val commonSettings = commonSmlBuildSettings ++ ossPublishSettings ++ Seq(
+import com.softwaremill.PublishTravis.publishTravisSettings
+
+lazy val commonSettings = commonSmlBuildSettings ++ publishTravisSettings ++ Seq(
   organization := "com.softwaremill.testrelease2",
   scalaVersion := "2.12.8",
   crossScalaVersions := Seq("2.12.8", "2.13.0")
