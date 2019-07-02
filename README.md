@@ -3,7 +3,7 @@
 SBT dependency:
 
 ```scala
-"com.softwaremill.testrelease2" %% "core" % "0.9"
+"com.softwaremill.testrelease2" %% "core" % "0.10"
 ```
 
 # How the release process works
