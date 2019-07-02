@@ -22,4 +22,4 @@ cache:
     - $HOME/.ivy2/cache
     - $HOME/.coursier
 script:
-  - sbt publishRelease
+  - sbt test
