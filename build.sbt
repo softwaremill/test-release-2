@@ -1,7 +1,7 @@
 import com.softwaremill.PublishTravis.publishTravisSettings
 import com.typesafe.sbt.pgp.PgpKeys.{pgpPublicRing, pgpSecretRing}
 
-val travisBuildDir = sys.env("$TRAVIS_BUILD_DIR")
+val travisBuildDir = sys.env.getOrElse("$TRAVIS_BUILD_DIR", "")
 lazy val commonSettings = commonSmlBuildSettings ++ publishTravisSettings ++ Seq(
   organization := "com.softwaremill.testrelease2",
   scalaVersion := "2.12.8",
