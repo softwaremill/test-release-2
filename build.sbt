@@ -1,7 +1,3 @@
-import com.softwaremill.PublishTravis.publishTravisSettings
-
-publishTravisSettings
-
 lazy val commonSettings = commonSmlBuildSettings ++ ossPublishSettings ++ Seq(
   organization := "com.softwaremill.testrelease2",
   scalaVersion := "2.12.8",
