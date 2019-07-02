@@ -13,6 +13,7 @@ project/plugins/project/
 
 .idea*
 
+credentials.sbt
 pgp.credentials
 pubring.asc
 secring.asc
