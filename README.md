@@ -44,7 +44,7 @@ pgpPassphrase := Some("KEY_PASSWORD").map(_.toArray)
 This should have two effects:
 
 1. an encrypted file should be created in the top-level directory: `secrets.tar.enc`. This file *should be* committed.
-Take care not to commit `secerts.tar`, though :).
+Take care not to commit `secrets.tar`, though :).
 2. a `before_install` segment should be added to `travis.yml`. This segment decrypts the secrets file, using 
 environmental variables provided by travis
 
