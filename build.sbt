@@ -2,6 +2,9 @@ import com.softwaremill.PublishTravis.publishTravisSettings
 import com.typesafe.sbt.pgp.PgpKeys.{pgpPublicRing, pgpSecretRing}
 
 val homeDir = sys.env("HOME")
+pgpSecretRing := file(s"$homeDir/secring.asc") // unpacked from secrets.tar.enc
+pgpPublicRing := file(s"$homeDir/pubring.asc") // unpacked from secrets.tar.enc
+
 lazy val commonSettings = commonSmlBuildSettings ++ publishTravisSettings ++ Seq(
   organization := "com.softwaremill.testrelease2",
   scalaVersion := "2.12.8",
