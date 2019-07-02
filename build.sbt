@@ -1,9 +1,10 @@
 lazy val commonSettings = commonSmlBuildSettings ++ ossPublishSettings ++ Seq(
   organization := "com.softwaremill.testrelease2",
   scalaVersion := "2.12.8",
+  crossScalaVersions := Seq("2.12.8", "2.13.0")
 )
 
-val scalaTest = "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+val scalaTest = "org.scalatest" %% "scalatest" % "3.0.8" % "test"
 
 lazy val rootProject = (project in file("."))
   .settings(commonSettings: _*)
