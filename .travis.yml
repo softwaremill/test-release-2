@@ -21,4 +21,4 @@ cache:
     - $HOME/.ivy2/cache
     - $HOME/.coursier
 script:
-  - sbt publishLocalSigned
+  - sbt publishRelease
