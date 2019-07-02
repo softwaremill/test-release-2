@@ -1,16 +1,11 @@
 import com.softwaremill.PublishTravis.publishTravisSettings
-import com.typesafe.sbt.pgp.PgpKeys.{pgpPublicRing, pgpSecretRing}
 
-val homeDir = sys.env("HOME")
-pgpSecretRing := file(s"$homeDir/secring.asc") // unpacked from secrets.tar.enc
-pgpPublicRing := file(s"$homeDir/pubring.asc") // unpacked from secrets.tar.enc
+publishTravisSettings: _*
 
-lazy val commonSettings = commonSmlBuildSettings ++ publishTravisSettings ++ Seq(
+lazy val commonSettings = commonSmlBuildSettings ++ ossPublishSettings ++ Seq(
   organization := "com.softwaremill.testrelease2",
   scalaVersion := "2.12.8",
-  crossScalaVersions := Seq("2.12.8", "2.13.0"),
-  pgpSecretRing := file(s"$homeDir/secring.asc"), // unpacked from secrets.tar.enc
-  pgpPublicRing := file(s"$homeDir/pubring.asc"), // unpacked from secrets.tar.enc
+  crossScalaVersions := Seq("2.12.8", "2.13.0")
 )
 
 val scalaTest = "org.scalatest" %% "scalatest" % "3.0.8" % "test"
