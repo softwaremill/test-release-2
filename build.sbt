@@ -1,6 +1,6 @@
 import com.softwaremill.PublishTravis.publishTravisSettings
 
-publishTravisSettings: _*
+publishTravisSettings
 
 lazy val commonSettings = commonSmlBuildSettings ++ ossPublishSettings ++ Seq(
   organization := "com.softwaremill.testrelease2",
