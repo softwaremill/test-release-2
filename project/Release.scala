@@ -18,7 +18,6 @@ object Release {
 
   val settings = Seq(
     useGpg := false, // use the gpg implementation from the sbt-pgp plugin
-    isCommitRelease := true,
     releaseProcess := {
       if (isCommitRelease.value) {
         Seq(

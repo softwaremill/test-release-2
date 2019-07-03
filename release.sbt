@@ -14,4 +14,6 @@ commands += Command.command("publishRelease") { state =>
 pgpSecretRing := baseDirectory.value / "secring.asc" // unpacked from secrets.tar.enc
 pgpPublicRing := baseDirectory.value / "pubring.asc" // unpacked from secrets.tar.enc
 
+Release.isCommitRelease := true
+
 Release.settings
