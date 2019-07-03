@@ -17,7 +17,6 @@ object Release {
   val isCommitRelease = settingKey[Boolean]("A hacky way to differentiate between commitRelease and publishRelease invocations.")
 
   val settings = Seq(
-    isCommitRelease := true,
     releaseProcess := {
       if (isCommitRelease.value) {
         Seq(

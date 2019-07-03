@@ -15,4 +15,6 @@ pgpSecretRing := baseDirectory.value / "secring.asc" // unpacked from secrets.ta
 pgpPublicRing := baseDirectory.value / "pubring.asc" // unpacked from secrets.tar.enc
 useGpg := false // use the gpg implementation from the sbt-pgp plugin
 
+Release.isCommitRelease := true
+
 Release.settings
