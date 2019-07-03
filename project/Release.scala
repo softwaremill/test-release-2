@@ -17,6 +17,10 @@ object Release {
   val isCommitRelease = settingKey[Boolean]("A hacky way to differentiate between commitRelease and publishRelease invocations.")
 
   val settings = Seq(
+    useGpg := false, // use the gpg implementation from the sbt-pgp plugin
+    pgpSecretRing := baseDirectory.value / "secring.asc", // unpacked from secrets.tar.enc
+    pgpPublicRing := baseDirectory.value / "pubring.asc", // unpacked from secrets.tar.enc
+    isCommitRelease := true,
     releaseProcess := {
       if (isCommitRelease.value) {
         Seq(
