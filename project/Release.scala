@@ -4,7 +4,7 @@ import com.softwaremill.Publish.Release._
 import sbtrelease.ReleasePlugin.autoImport._
 import sbtrelease.ReleaseStateTransformations._
 
-import com.typesafe.sbt.pgp.PgpKeys._
+import com.typesafe.sbt.SbtPgp.autoImportImpl._
 
 object Release {
   // release entry points
@@ -15,6 +15,23 @@ object Release {
   //
 
   val isCommitRelease = settingKey[Boolean]("A hacky way to differentiate between commitRelease and publishRelease invocations.")
+
+  commands += Command.command("commitRelease") { state =>
+    "set Release.isCommitRelease := true" ::
+      "release" ::
+      state
+  }
+  commands += Command.command("publishRelease") { state =>
+    "set Release.isCommitRelease := false" ::
+      "release" ::
+      state
+  }
+
+  pgpSecretRing := baseDirectory.value / "secring.asc" // unpacked from secrets.tar.enc
+  pgpPublicRing := baseDirectory.value / "pubring.asc" // unpacked from secrets.tar.enc
+  useGpg := false // use the gpg implementation from the sbt-pgp plugin
+
+  isCommitRelease := true
 
   val settings = Seq(
     releaseProcess := {
