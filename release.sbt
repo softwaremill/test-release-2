@@ -1,5 +1,3 @@
-import com.typesafe.sbt.pgp.PgpKeys.{pgpPublicRing, pgpSecretRing, useGpg}
-
 commands += Command.command("commitRelease") { state =>
   "set Release.isCommitRelease := true" ::
     "release" ::
