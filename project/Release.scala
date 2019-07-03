@@ -17,17 +17,6 @@ object Release {
   val isCommitRelease = settingKey[Boolean]("A hacky way to differentiate between commitRelease and publishRelease invocations.")
 
   val settings = Seq(
-    isCommitRelease := true,
-    commands += Command.command("commitRelease") { state =>
-      "set Release.isCommitRelease := true" ::
-        "release" ::
-        state
-    },
-    commands += Command.command("publishRelease") { state =>
-      "set Release.isCommitRelease := false" ::
-        "release" ::
-        state
-    },
     releaseProcess := {
       if (isCommitRelease.value) {
         Seq(
