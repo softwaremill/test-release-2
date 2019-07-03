@@ -27,13 +27,11 @@ object Release {
       state
   }
 
-  pgpSecretRing := baseDirectory.value / "secring.asc" // unpacked from secrets.tar.enc
-  pgpPublicRing := baseDirectory.value / "pubring.asc" // unpacked from secrets.tar.enc
-  useGpg := false // use the gpg implementation from the sbt-pgp plugin
-
-  isCommitRelease := true
-
   val settings = Seq(
+    pgpSecretRing := baseDirectory.value / "secring.asc", // unpacked from secrets.tar.enc
+    pgpPublicRing := baseDirectory.value / "pubring.asc", // unpacked from secrets.tar.enc
+    useGpg := false, // use the gpg implementation from the sbt-pgp plugin
+    isCommitRelease := true,
     releaseProcess := {
       if (isCommitRelease.value) {
         Seq(
